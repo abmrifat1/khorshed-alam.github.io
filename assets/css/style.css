@@ -1,13 +1,3 @@
-/**
-* Template Name: iPortfolio - v1.5.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
@@ -26,9 +16,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
   display: none;
@@ -56,9 +43,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.2s ease-in-out;
 }
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
 #header {
   position: fixed;
   top: 0;
@@ -124,15 +108,12 @@ h1, h2, h3, h4, h5, h6 {
   #header {
     left: -300px;
   }
+
   #main {
     margin-left: 0;
   }
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/* Desktop Navigation */
 .nav-menu {
   padding-top: 10px;
 }
@@ -143,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
-.nav-menu > ul > li {
+.nav-menu>ul>li {
   position: relative;
   white-space: nowrap;
 }
@@ -163,16 +144,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #6f7180;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+.nav-menu a:hover, .nav-menu .active>a, .nav-menu li:hover>a {
   text-decoration: none;
   color: #fff;
 }
 
-.nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
+.nav-menu a:hover i, .nav-menu .active>a i, .nav-menu li:hover>a i {
   color: #149ddd;
 }
 
-/* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -204,9 +184,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: 100vh;
@@ -264,6 +241,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
     line-height: 36px;
   }
+
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
@@ -271,9 +249,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -311,9 +286,6 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# About
---------------------------------------------------------------*/
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
@@ -339,9 +311,6 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Facts
---------------------------------------------------------------*/
 .facts {
   padding-bottom: 30px;
 }
@@ -389,9 +358,6 @@ section {
   color: #1f5297;
 }
 
-/*--------------------------------------------------------------
-# Akills
---------------------------------------------------------------*/
 .skills .progress {
   height: 50px;
   display: block;
@@ -424,9 +390,6 @@ section {
   background-color: #149ddd;
 }
 
-/*--------------------------------------------------------------
-# Resume
---------------------------------------------------------------*/
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
@@ -486,9 +449,6 @@ section {
   border: 2px solid #1f5297;
 }
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -569,7 +529,7 @@ section {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.portfolio .portfolio-wrap .portfolio-links a + a {
+.portfolio .portfolio-wrap .portfolio-links a+a {
   border-left: 1px solid #37b3ed;
 }
 
@@ -586,9 +546,6 @@ section {
   bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Services
---------------------------------------------------------------*/
 .services .icon-box {
   margin-bottom: 20px;
 }
@@ -640,9 +597,6 @@ section {
   font-size: 14px;
 }
 
-/*--------------------------------------------------------------
-# Testimonials
---------------------------------------------------------------*/
 .testimonials .testimonial-item {
   box-sizing: content-box;
   text-align: center;
@@ -733,9 +687,6 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
 .contact {
   padding-bottom: 130px;
 }
@@ -837,7 +788,7 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .php-email-form .error-message br+br {
   margin-top: 25px;
 }
 
@@ -901,6 +852,7 @@ section {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -910,14 +862,12 @@ section {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
   background: #f9f9f9;
@@ -937,11 +887,11 @@ section {
   font-size: 15px;
 }
 
-.breadcrumbs ol li + li {
+.breadcrumbs ol li+li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li + li::before {
+.breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
   color: #0e2442;
@@ -952,17 +902,16 @@ section {
   .breadcrumbs .d-flex {
     display: block !important;
   }
+
   .breadcrumbs ol {
     display: block;
   }
+
   .breadcrumbs ol li {
     display: inline-block;
   }
 }
 
-/*--------------------------------------------------------------
-# Interests
---------------------------------------------------------------*/
 .interests .icon-box {
   display: flex;
   align-items: center;
@@ -990,9 +939,6 @@ section {
   background: #2B1B17;
 }
 
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
 }
@@ -1048,7 +994,7 @@ section {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li + li {
+.portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
 }
 
@@ -1076,15 +1022,13 @@ section {
   .portfolio-details .portfolio-description h2 {
     width: 100%;
   }
+
   .portfolio-details .portfolio-info {
     position: static;
     margin-top: 30px;
   }
 }
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
 #footer {
   padding: 15px;
   color: #f4f6fd;
@@ -1126,8 +1070,8 @@ section {
   color: white;
 }
 
-.tag-red{
- background-color: rgb(228, 66, 66);
+.tag-red {
+  background-color: rgb(228, 66, 66);
 }
 
 .tag-green {
@@ -1136,7 +1080,7 @@ section {
 
 .tag-blue {
   background-color: rgb(50, 50, 211);
-  
+
 }
 
 .tag-pink {
