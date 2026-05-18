@@ -4,21 +4,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Khorshed Alam Rifat | Senior Software Engineer</title>
+	<meta name="description" content="Full‑stack portfolio with dark theme, full‑width layout, and modern animations.">
 
-	<title>Khorshed Alam Rifat</title>
-	<meta content="" name="description">
-	<meta content="" name="keywords">
-
-	<!-- Favicons -->
+	<!-- Favicons (adjust paths if needed) -->
 	<link href="assets/img/portfolio/letter_k.png" rel="icon">
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
 	<link
-		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
 		rel="stylesheet">
 
-	<!-- Vendor CSS Files -->
+	<!-- Vendor CSS -->
 	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -26,69 +24,585 @@
 	<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
 	<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-
-	<!-- Template Main CSS File -->
-	<link href="assets/css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+
+	<style>
+		/* ---------- FULL WIDTH FIX + DARK THEME ---------- */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Open Sans', sans-serif;
+			background-color: #000000;
+			color: #e0e0e0;
+			overflow-x: hidden;
+			scroll-behavior: smooth;
+		}
+
+		/* Custom scrollbar */
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #111;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: #0dcaf0;
+			border-radius: 10px;
+		}
+
+		/* Full-width container */
+		.full-container {
+			width: 100%;
+			padding-left: 40px;
+			padding-right: 40px;
+			margin: 0 auto;
+		}
+
+		@media (max-width: 768px) {
+			.full-container {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+
+		/* ----- Sidebar (fixed) ----- */
+		#header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 280px;
+			background: rgba(8, 8, 12, 0.96);
+			backdrop-filter: blur(10px);
+			border-right: 1px solid rgba(255, 255, 255, 0.05);
+			z-index: 9997;
+			overflow-y: auto;
+			transition: all 0.4s ease;
+		}
+
+		#header .profile img {
+			width: 130px;
+			margin: 20px auto 10px;
+			border: 4px solid #0dcaf0;
+			border-radius: 50%;
+			transition: 0.3s;
+		}
+
+		#header .profile img:hover {
+			transform: scale(1.02);
+			box-shadow: 0 0 20px #0dcaf0;
+		}
+
+		#header .profile h1 {
+			font-size: 22px;
+			text-align: center;
+			color: white;
+		}
+
+		.social-links a {
+			background: #1a1a24;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			margin: 0 4px;
+			transition: all 0.3s;
+			color: white;
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+
+		.social-links a:hover {
+			background: #0dcaf0;
+			color: #000;
+			transform: translateY(-3px);
+		}
+
+		.nav-menu a {
+			display: flex;
+			align-items: center;
+			padding: 12px 20px;
+			color: #b0b3c0;
+			border-left: 3px solid transparent;
+			transition: 0.3s;
+		}
+
+		.nav-menu a i {
+			font-size: 22px;
+			margin-right: 8px;
+		}
+
+		.nav-menu a:hover,
+		.nav-menu .active>a {
+			color: white;
+			background: rgba(13, 202, 240, 0.1);
+			border-left-color: #0dcaf0;
+		}
+
+		.nav-menu a:hover i,
+		.nav-menu .active>a i {
+			color: #0dcaf0;
+		}
+
+		/* ----- Main content – fills remaining width automatically ----- */
+		#main {
+			margin-left: 280px;
+			width: auto;
+			background: #000000;
+		}
+
+		@media (max-width: 1199px) {
+			#header {
+				left: -280px;
+			}
+
+			#main {
+				margin-left: 0;
+			}
+
+			.mobile-nav-active #header {
+				left: 0;
+			}
+		}
+
+		/* Hero Section – full width background */
+		#hero {
+			width: 100%;
+			height: 100vh;
+			background: url("./assets/img/bg.jpg") top center;
+			background-size: cover;
+			/* width: 100%;
+			min-height: 100vh;
+			background: linear-gradient(135deg, #03070e, #000000), url("../img/bg.jpg");
+			background-blend-mode: overlay;
+			background-size: cover;  */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+
+		#hero:before {
+			content: "";
+			background: rgba(0, 0, 0, 0.7);
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+
+		.hero-container {
+			position: relative;
+			z-index: 2;
+			text-align: center;
+			background: rgba(0, 0, 0, 0.65);
+			backdrop-filter: blur(12px);
+			padding: 40px 50px;
+			border-radius: 40px;
+			border: 1px solid rgba(13, 202, 240, 0.3);
+			animation: fadeInUp 1s ease;
+		}
+
+		#hero h1 {
+			font-size: 54px;
+			font-weight: 800;
+			background: linear-gradient(120deg, #fff, #0dcaf0);
+			-webkit-background-clip: text;
+			background-clip: text;
+			color: transparent;
+		}
+
+		#hero p span {
+			color: #0dcaf0;
+			border-bottom: 3px solid #0dcaf0;
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(40px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Section styling – full width, inner padding via .full-container */
+		section {
+			padding: 70px 0;
+			width: 100%;
+		}
+
+		.section-title h2 {
+			font-size: 34px;
+			font-weight: 700;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 30px;
+			color: white;
+		}
+
+		.section-title h2::after {
+			content: '';
+			position: absolute;
+			bottom: -12px;
+			left: 0;
+			width: 70px;
+			height: 4px;
+			background: #0dcaf0;
+			border-radius: 4px;
+			transition: width 0.3s;
+		}
+
+		.section-title:hover h2::after {
+			width: 120px;
+		}
+
+		/* Cards & boxes */
+		.resume-item {
+			background: rgba(20, 20, 30, 0.5);
+			backdrop-filter: blur(2px);
+			border-left: 3px solid #0dcaf0;
+			border-radius: 16px;
+			padding: 20px;
+			margin-bottom: 25px;
+			transition: all 0.3s;
+			margin-top: 5px;
+		}
+
+		.resume-item:hover {
+			transform: translateX(8px);
+			background: rgba(13, 202, 240, 0.08);
+		}
+
+		.icon-box {
+			background: #0a0a10;
+			border-radius: 20px;
+			padding: 20px;
+			text-align: center;
+			transition: all 0.3s;
+			border: 1px solid rgba(255, 255, 255, 0.05);
+		}
+
+		.icon-box:hover {
+			transform: translateY(-6px);
+			border-color: #0dcaf0;
+			box-shadow: 0 10px 20px -8px rgba(13, 202, 240, 0.3);
+		}
+
+		.icon-box i {
+			font-size: 38px;
+		}
+
+		.icon-box h3 {
+			margin-top: 12px;
+			font-size: 16px;
+			color: white;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: 4px 12px;
+			border-radius: 30px;
+			font-size: 11px;
+			font-weight: 600;
+			margin: 3px 5px;
+		}
+
+		.tag-red {
+			background-color: rgb(163, 5, 5);
+		}
+
+		.tag-green {
+			background-color: rgb(3, 71, 3);
+		}
+
+		.tag-blue {
+			background-color: rgb(8, 8, 100);
+
+		}
+
+		.tag-pink {
+			background-color: rgb(120, 9, 46);
+		}
+
+		.tag-orange {
+			background-color: rgb(82, 55, 6);
+		}
+
+		.tag-one {
+			background-color: rgb(2, 21, 57);
+		}
+
+		.tag-two {
+			background-color: rgba(2, 68, 65, 0.75);
+		}
+
+		.tag-three {
+			background-color: rgb(99, 6, 87);
+		}
+
+		/* Portfolio filter + grid */
+		.portfolio #portfolio-flters {
+			background: #0a0a12;
+			border-radius: 60px;
+			padding: 5px 20px;
+			display: inline-flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			list-style: none;
+		}
+
+		.portfolio #portfolio-flters li {
+			cursor: pointer;
+			padding: 8px 18px;
+			color: #ccc;
+			font-weight: 600;
+			transition: 0.3s;
+			list-style: none;
+		}
+
+		.portfolio #portfolio-flters li:hover,
+		.portfolio #portfolio-flters li.filter-active {
+			color: #0dcaf0;
+		}
+
+		/* .portfolio-wrap {
+			border-radius: 20px;
+			overflow: hidden;
+			margin-bottom: 25px;
+			transition: 0.3s;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+		} */
+		/* 
+		.portfolio-wrap:hover {
+			transform: scale(0.98);
+			box-shadow: 0 10px 25px rgba(13, 202, 240, 0.2);
+		}
+
+		.portfolio-wrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #0a0a12;
+			padding: 10px;
+		}
+
+		.portfolio-wrap img {
+			max-width: 100%;
+			max-height: 120px;
+			width: auto;
+			height: auto;
+			object-fit: contain;
+		} */
+
+
+		.portfolio-wrap {
+			transition: 0.3s;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+			margin-bottom: 10px;
+		}
+
+		.portfolio-wrap::before {
+			content: "";
+			background: rgba(255, 255, 255, 0.5);
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			transition: all ease-in-out 0.3s;
+			z-index: 2;
+			opacity: 0;
+		}
+
+		.portfolio-wrap .portfolio-links {
+			opacity: 1;
+			left: 0;
+			right: 0;
+			bottom: -60px;
+			z-index: 3;
+			position: absolute;
+			transition: all ease-in-out 0.3s;
+			display: flex;
+			justify-content: center;
+		}
+
+		.portfolio-wrap .portfolio-links a {
+			color: #fff;
+			font-size: 28px;
+			text-align: center;
+			background: rgba(20, 157, 221, 0.75);
+			transition: 0.3s;
+			width: 50%;
+		}
+
+		.portfolio-wrap .portfolio-links a:hover {
+			background: rgba(20, 157, 221, 0.95);
+		}
+
+		.portfolio-wrap .portfolio-links a+a {
+			border-left: 1px solid #37b3ed;
+		}
+
+		.portfolio-wrap:hover::before {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 1;
+		}
+
+		.portfolio-wrap:hover .portfolio-links {
+			opacity: 1;
+			bottom: 0;
+		}
+
+		.testimonial-info {
+			background: rgba(15, 15, 25, 0.7);
+			backdrop-filter: blur(4px);
+			border-radius: 28px;
+			padding: 25px;
+			height: 100%;
+			border: 1px solid rgba(13, 202, 240, 0.2);
+			transition: 0.3s;
+		}
+
+		.testimonial-info:hover {
+			transform: translateY(-8px);
+			border-color: #0dcaf0;
+			background: rgba(13, 202, 240, 0.08);
+		}
+
+		.contact .info {
+			background: #0b0b12;
+			border-radius: 28px;
+			padding: 30px;
+			border: 1px solid #1f1f2a;
+		}
+
+		.contact .info i {
+			background: #1e1e2c;
+			color: #0dcaf0;
+			width: 44px;
+			height: 44px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			margin-right: 15px;
+		}
+
+		.back-to-top {
+			position: fixed;
+			bottom: 25px;
+			right: 25px;
+			width: 45px;
+			height: 45px;
+			background: #0dcaf0;
+			border-radius: 50%;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			z-index: 99999;
+			transition: 0.3s;
+			box-shadow: 0 0 12px rgba(13, 202, 240, 0.5);
+		}
+
+		.back-to-top i {
+			font-size: 45px;
+			color: black;
+			margin-top: 20px;
+		}
+
+		.back-to-top:hover {
+			transform: translateY(-5px);
+			background: #5ee0fa;
+			text-decoration: none;
+		}
+
+		footer {
+			background: #05050a;
+			text-align: center;
+			padding: 20px 0;
+			margin-left: 280px;
+			border-top: 1px solid #1a1a24;
+		}
+
+		@media (max-width: 1199px) {
+			footer {
+				margin-left: 0;
+			}
+		}
+	</style>
 </head>
 
 <body>
 
-	<!-- ======= Mobile nav toggle button ======= -->
-	<button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+	<button type="button" class="mobile-nav-toggle d-xl-none"
+		style="padding: 5px; height: 60px; width: 60px; background-color: #1d1919;"><i class="icofont-navigation-menu"
+			style="font-size: 28px; color: white;"></i></button>
 
-	<!-- ======= Header ======= -->
+	<!-- ======= Sidebar ======= -->
 	<header id="header">
 		<div class="d-flex flex-column">
-
-			<div class="profile">
-				<img src="assets/img/rifat.jpg" alt="" class="img-fluid rounded-circle">
-				<h1 class="text-light"><a href="index.html">KHORSHED ALAM</a></h1>
-				<div class="social-links mt-3 text-center">
-					<a target="_blank" href="https://github.com/abmrifat1" class="twitter"><i class="bx bxl-github"></i></a>
-					<a target="_blank" href="https://www.linkedin.com/in/khorshed-alam-rifat-a9945b126/" class="linkedin"><i
-							class="bx bxl-linkedin"></i></a>
-					<a target="_blank" href="https://twitter.com/AbmRifat" class="google-plus"><i class="bx bxl-twitter"></i></a>
-					<a target="_blank" href="https://www.facebook.com/abmkhorshedalamrifat1/" class="facebook"><i
+			<div class="profile text-center">
+				<img src="assets/img/rifat.jpg" alt="Profile" class="img-fluid rounded-circle">
+				<h1 class="text-light"><a style="color: white; text-decoration: none;" href="index.html">KHORSHED ALAM</a></h1>
+				<div class="social-links mt-3">
+					<a style="text-decoration: none;" target="_blank" href="https://github.com/abmrifat1"><i
+							class="bx bxl-github"></i></a>
+					<a style="text-decoration: none;" target="_blank"
+						href="https://www.linkedin.com/in/khorshed-alam-rifat-a9945b126/"><i class="bx bxl-linkedin"></i></a>
+					<a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/abmkhorshedalamrifat1/"><i
 							class="bx bxl-facebook"></i></a>
-
 				</div>
 			</div>
-
 			<nav class="nav-menu">
 				<ul>
-					<li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
-					<li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-					<li><a href="#resume"><i class="bx bx-spreadsheet"></i> <span>Resume</span></a></li>
-					<li><a href="#skill"><i class="bx bx-layer"></i> skill</a></li>
-					<li><a href="#project"><i class="bx bx-analyse"></i> <span>My Project</span></a></li>
-					<li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-					<li><a href="#testimonial"><i class="bx bx-file"></i> <span>Testimonial</span></a></li>
-					<li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
-
+					<li class="active"><a style="text-decoration: none;" href="#hero"><i class="bx bx-home"></i>
+							<span>Home</span></a></li>
+					<li><a style="text-decoration: none;" href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+					<li><a style="text-decoration: none;" href="#resume"><i class="bx bx-spreadsheet"></i> <span>Resume</span></a>
+					</li>
+					<li><a style="text-decoration: none;" href="#skill"><i class="bx bx-layer"></i> Skills</a></li>
+					<li><a style="text-decoration: none;" href="#project"><i class="bx bx-analyse"></i> <span>Projects</span></a>
+					</li>
+					<li><a style="text-decoration: none;" href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
+					<li><a style="text-decoration: none;" href="#testimonial"><i class="bx bx-file"></i>
+							<span>Testimonials</span></a></li>
+					<li><a style="text-decoration: none;" href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
 				</ul>
-			</nav><!-- .nav-menu -->
-			<button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
-
+			</nav>
 		</div>
-	</header><!-- End Header -->
-
-	<!-- ======= Hero Section ======= -->
-	<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-		<div class="hero-container" data-aos="fade-in">
-			<h1>KHORSHED ALAM RIFAT</h1>
-			<p>I'm <span class="typed"
-					data-typed-items="a senior software engineer,a full-stack web Developer,a mobile app Developer"></span></p>
-		</div>
-	</section><!-- End Hero -->
+	</header>
 
 	<main id="main">
 
-		<!-- ======= About Section ======= -->
-		<section id="about" class="about">
-			<div class="container">
+		<!-- Hero -->
+		<section id="hero">
+			<div class="hero-container" data-aos="fade-up">
+				<h1>KHORSHED ALAM RIFAT</h1>
+				<p style="font-size: 40px;">I'm <span class="typed"
+						data-typed-items="a senior software engineer,a full-stack web Developer,a mobile app Developer"></span></p>
+			</div>
+		</section>
 
-				<div class="section-title">
+		<!-- About -->
+		<section id="about">
+			<div class="full-container">
+				<div class="section-title" data-aos="fade-right">
 					<h2>About</h2>
 					<p>I am a Senior Software Engineer with 5.5+ years of experience building scalable web and mobile systems
 						using Angular, <strong>React Native,
@@ -98,14 +612,11 @@
 						junior engineers while contributing to
 						high-impact production systems across multiple companies.</p>
 				</div>
-
 				<div class="row">
-					<div class="col-lg-4" data-aos="fade-right">
-						<img src="assets/img/rifat.jpg" class="img-fluid" alt="">
-					</div>
-					<div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-						<br />
-						<h3>Senior Software Engineer.</h3>
+					<div class="col-lg-4 col-md-3" data-aos="fade-right"><img src="assets/img/rifat.jpg"
+							class="img-fluid rounded shadow-lg" alt=""></div>
+					<div class="col-lg-8 pt-4 pt-lg-0" style="margin-top: 20px;" data-aos="fade-left">
+						<h3>Senior Software Engineer</h3>
 						<p class="font-italic">
 							I'm a Senior Software Engineer with extensive experience and good expository abilities.
 							I've principally spent significant time in Web and mobile App Development both individually
@@ -117,45 +628,37 @@
 
 							Be my mate!
 						</p>
-						<br />
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-lg-6">
-								<ul>
-									<li><i class="icofont-rounded-right"></i> <strong>E-mail:</strong>
-										rifatabm1@gmail.com</li>
-									<li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +8801772515721
-									</li>
-									<li><i class="icofont-rounded-right"></i> <strong>City:</strong> Gulshan 2, Dhaka
-									</li>
+								<ul class="list-unstyled">
+									<li><i class="icofont-rounded-right text-info"></i> <strong>Email:</strong> rifatabm1@gmail.com</li>
+									<li><i class="icofont-rounded-right text-info"></i> <strong>Phone:</strong> +8801772515721</li>
+									<li><i class="icofont-rounded-right text-info"></i> <strong>City:</strong> Gulshan 2, Dhaka</li>
 								</ul>
 							</div>
 							<div class="col-lg-6">
-								<ul>
-									<li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 29</li>
-									<li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> B.Sc in CSE</li>
-									<li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available</li>
+								<ul class="list-unstyled">
+									<li><i class="icofont-rounded-right text-info"></i> <strong>Whatsapp:</strong> 01886407758</li>
+									<li><i class="icofont-rounded-right text-info"></i> <strong>Degree:</strong> B.Sc in CSE</li>
+									<li><i class="icofont-rounded-right text-info"></i> <strong>Freelance:</strong> Available</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
-		</section><!-- End About Section -->
+		</section>
 
-
-		<!-- ======= Resume Section ======= -->
-		<section id="resume" class="resume">
-			<div class="container">
-
+		<!-- Resume -->
+		<section id="resume">
+			<div class="full-container">
 				<div class="section-title">
 					<h2>Resume</h2>
 				</div>
-
 				<div class="row">
-					<div class="col-lg-6" data-aos="fade-up">
-						<h3 class="resume-title">Sumary</h3>
-						<div class="resume-item pb-0">
+					<div class="col-lg-6">
+						<h3>Summary</h3>
+						<div class="resume-item">
 							<h4>Khorshed Alam</h4>
 							<p><em>I have the ability and experience to develop complex projects for a diverse variety
 									of users. I acquired
@@ -178,7 +681,7 @@
 									thrive, grow.<br /><br />
 									If you're looking to connect, collaborate, or simply chat about technology,
 									feel free to reach out. Let's explore the possibilities together!</em></p>
-							<ul><br />
+							<ul style="padding-left: 20px;"><br />
 								<li>Gulshan 2, Dhaka,Bangladesh</li>
 								<li>rifatabm1@gmail.com</li>
 								<li>+880 1772515721</li>
@@ -187,37 +690,30 @@
 
 							</ul>
 						</div>
-
-						<h3 class="resume-title">Education</h3>
+						<h3>Education</h3>
 						<div class="resume-item">
-							<h4>BACHELOR OF COMPUTER SCIENCE & ENGINEERING</h4>
-							<h5>2015 - 2019</h5>
-							<h5>CGPA: 3.77</h5>
-							<p><em><a target="_blank" href="https://daffodilvarsity.edu.bd/">Daffodil International University, Dhaka,
-										Bangladesh</a></em></p>
+							<h4>B.Sc in CSE</h4>
+							<h5>2015-2019</h5>
+							<p>Daffodil International University, CGPA: 3.77</p>
 						</div>
 						<div class="resume-item">
 							<h4>HSC</h4>
-							<h5>2011 - 2013</h5>
-							<h5>CGPA: 4.10</h5>
-							<p><em><a target="_blank" href="https://gssc.studentpay.net/">Govt Shahid Suhrawardy College, Dhaka,
-										Bangladesh</a></em></p>
+							<h5>2011-2013</h5>
+							<p>Govt Shahid Suhrawardy College, GPA: 4.10</p>
 						</div>
 						<div class="resume-item">
 							<h4>SSC</h4>
-							<h5>2006 - 2011</h5>
-							<h5>CGPA: 5.00</h5>
-							<p><em><a target="_blank" href="https://www.sohopathi.com/bernaiya-high-school/">Bernaiya High School,
-										Chadpur, Bangladesh</a></em></p>
+							<h5>2006-2011</h5>
+							<p>Bernaiya High School, Chadpur, GPA: 5.00</p>
 						</div>
 					</div>
-					<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-						<h3 class="resume-title">Professional Experience</h3>
+					<div class="col-lg-6">
+						<h3>Professional Experience</h3>
 						<div class="resume-item">
-							<h4>SENIOR SOFTWARE ENGINEER</h4>
-							<h5>November,2023 - Present</h5>
+							<h4>Senior Software Engineer</h4>
+							<h5>Nov 2023 - Present</h5>
 							<p><em><a target="_blank" href="https://bizreflex.com/">BizReflex, Bangladesh</a></em></p>
-							<ul>
+							<ul style="padding-left: 20px;">
 								<li>Built <strong>scalable NestJS & Node.js backend services </strong>for real-time service dispatch and
 									monitoring
 									platforms.</li>
@@ -231,10 +727,10 @@
 							</ul>
 						</div>
 						<div class="resume-item">
-							<h4>SOFTWARE ENGINEER</h4>
-							<h5>November,2022 - November 2023</h5>
+							<h4>Software Engineer</h4>
+							<h5>Nov 2022 - Nov 2023</h5>
 							<p><em><a target="_blank">Aspire Intelligence Ltd.</a></em></p>
-							<ul>
+							<ul style="padding-left: 20px;">
 								<li>Developed <strong>NestJS APIs</strong> for automation and compliance management systems supporting
 									<strong>10k+
 										daily users.</strong>
@@ -247,10 +743,10 @@
 							</ul>
 						</div>
 						<div class="resume-item">
-							<h4>SOFTWARE ENGINEER</h4>
-							<h5>February,2021 - November,2022</h5>
+							<h4>Software Engineer</h4>
+							<h5>Feb 2021 - Nov 2022</h5>
 							<p><em><a target="_blank" href="https://www.gononet.net/">Gononet online solutions, Dhaka</a></em></p>
-							<ul>
+							<ul style="padding-left: 20px;">
 								<li>Developed <strong>React Native mobile apps</strong> and <strong>React web applications</strong> for
 									consumer-facing platforms.</li>
 								<li>Integrated frontend applications with backend services supporting <strong>high-traffic
@@ -262,7 +758,7 @@
 							<h4>JUNIOR SOFTWARE ENGINEER</h4>
 							<h5>September,2019 - February,2021</h5>
 							<p><em><a target="_blank" href="https://bizreflex.com/">BizReflex, Dhaka</a></em></p>
-							<ul>
+							<ul style="padding-left: 20px;">
 								<li>Built mobile and web applications using <strong>React Native, Angular, and Node.js.</strong></li>
 								<li>Assisted in backend development using NestJS and database queries with <strong>Knex.js.</strong>
 								</li>
@@ -270,88 +766,61 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- <div style="text-align: center; margin-top: 20px;">
-					<div class="col-lg-12" data-aos="fade-up">
-						<img width="100%" src="assets/img/cv.png" class="img-fluid" alt="">
-					</div>
-				</div> -->
 			</div>
+		</section>
 
-		</section><!-- End Resume Section -->
-
-
-		<!-- ======= Interests ======= -->
-		<section id="skill" class="skill">
-			<div class="interests container">
-
+		<!-- Skills -->
+		<section id="skill">
+			<div class="full-container">
 				<div class="section-title">
 					<h2>Skills</h2>
 				</div>
-
 				<div class="row">
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-angularjs-plain colored"></i>
+						<div class="icon-box"><i class="devicon-angularjs-plain colored" style="font-size: 30px;"></i>
 							<h3>Angular</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-nodejs-plain colored"></i>
+						<div class="icon-box"><i class="devicon-nodejs-plain colored"></i>
 							<h3>Node.js</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-nestjs-plain colored"></i>
-							<h3>NEST JS</h3>
+						<div class="icon-box"><i class="devicon-nestjs-plain colored"></i>
+							<h3>NestJS</h3>
 						</div>
 					</div>
-
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-react-plain colored"></i>
-							<h3>React-native</h3>
+						<div class="icon-box"><i class="devicon-react-plain colored"></i>
+							<h3>React Native</h3>
 						</div>
 					</div>
-
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-react-original colored"></i>
+						<div class="icon-box"><i class="devicon-react-original colored"></i>
 							<h3>React</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-react-original colored"></i>
+						<div class="icon-box"><i class="devicon-react-original colored"></i>
 							<h3>NEXT JS</h3>
 						</div>
 					</div>
-
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-typescript-plain colored"></i>
+						<div class="icon-box"><i class="devicon-typescript-plain colored"></i>
 							<h3>TypeScript</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-javascript-plain colored"></i>
+						<div class="icon-box"><i class="devicon-javascript-plain colored"></i>
 							<h3>JavaScript</h3>
 						</div>
 					</div>
-
-
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-postgresql-plain colored"></i>
+						<div class="icon-box"><i class="devicon-postgresql-plain colored"></i>
 							<h3>PostgreSQL</h3>
 						</div>
 					</div>
-
-					<!-- <br> -->
-
 					<div class="col-lg-3 col-md-4 mt-4">
 						<div class="icon-box">
 							<i class="devicon-mysql-plain colored"></i>
@@ -385,61 +854,55 @@
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-kubernetes-plain colored"></i>
-							<h3>Kubernetes</h3>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 mt-4">
-						<div class="icon-box">
-							<i class="devicon-docker-plain colored"></i>
+						<div class="icon-box"><i class="devicon-docker-plain colored"></i>
 							<h3>Docker</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
+						<div class="icon-box"><i class="devicon-kubernetes-plain colored"></i>
+							<h3>K8s</h3>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 mt-4">
 						<div class="icon-box">
-							<i class="colored"></i>
+							<i class="devicon-redux-original colored"></i>
 							<h3>Redux</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
 						<div class="icon-box">
-							<i class="colored"></i>
+							<i class="bx bxs-phone-call colored"></i>
 							<h3>Twilio</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
 						<div class="icon-box">
-							<i class="colored"></i>
+							<i class="bx bx-wifi colored"></i>
 							<h3>Web socket</h3>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-4 mt-4">
 						<div class="icon-box">
-							<i class="colored"></i>
+							<i class="bx bx-link-alt colored"></i>
 							<h3>Web hook</h3>
 						</div>
 					</div>
 				</div>
-				<br>
 			</div>
-		</section><!-- End Interests -->
+		</section>
 
-		<!-- project Section -->
-		<section id="project" class="resume">
-			<div class="container">
-
+		<!-- Projects -->
+		<section id="project">
+			<div class="full-container">
 				<div class="section-title">
-					<h2>My Project</h2>
+					<h2>My Projects</h2>
 				</div>
-
 				<div class="row">
-
-					<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-						<!-- sequiza -->
-
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
-							<h4><a target="_blank" href="https://app.tekumopro.com/">Sequinza</a></h4>
+							<h4><a href="https://app.tekumopro.com/" target="_blank">Sequinza</a></h4>
+							<!-- <p>Device management, work orders, IoT monitoring. <span class="tag tag-red">Node.js</span><span
+									class="tag tag-blue">Angular</span><span class="tag tag-green">PostgreSQL</span></p> -->
 							<h5>Web Application</h5>
 							<p><em>BizReflex, Dhaka</em></p>
 							<p class="tag tag-red">Nodejs</p>
@@ -452,7 +915,7 @@
 							<p class="tag tag-three">NATS</p>
 							<p class="tag tag-red">Redis</p>
 
-							<ul>
+							<ul style="margin: 10px;">
 								<li>Sequinza helps product and service organizations install
 									And manage connected devices.</li>
 								<li>Facility to create, publish, assign, and pay a work order for buyer and provider. </li>
@@ -463,9 +926,33 @@
 									IoT and smart technologies.</li>
 							</ul>
 						</div>
+					</div>
 
-						<!-- kaster -->
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
+						<div class="resume-item">
+							<h4><a target="_blank" href="https://www.gorillamove.com/">gorillamove</a></h4>
+							<h5>Mobile & Web Application</h5>
+							<p><em>Gononet Online Solutions Ltd, Dhaka</em></p>
+							<p class="tag tag-red">ReactNative</p>
+							<p class="tag tag-green">Redux</p>
+							<p class="tag tag-two">React</p>
+							<p class="tag tag-two">NextJs</p>
+							<p class="tag tag-pink">PostgreSQL</p>
 
+							<ul style="margin: 10px;">
+								<li>Gorillamove is an instant grocery delivery service in Bangladesh, committed to effectively serving
+									customers and the planet a little better every day.
+								</li>
+								<li>React-native cross-platform mobile app and React-based web app. Golang is used for the backend.
+								</li>
+								<li> I am a part of the team whose responsibility is to handle all kinds of Mobile app, frontend, and
+									admin
+									operations.</li>
+								<li>Available on the play store, app store, and website.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4><a target="_blank" href="https://www.kaster.app/">Kaster</a></h4>
 							<h5>Mobile & Web Application</h5>
@@ -480,7 +967,7 @@
 							<p class="tag tag-three">Twilio</p>
 							<p class="tag tag-red">WebSocket</p>
 
-							<ul>
+							<ul style="margin: 10px;">
 								<li>Kaster is an automation tool for the administration of trade partners. It's a solution that
 									simplifies the way
 									everyone works — letting automation handle the rest. Unlike other tools, Kaster specializes in
@@ -497,36 +984,34 @@
 								<li>Available on the play store, app store, and website.</li>
 							</ul>
 						</div>
-
-						<!-- gorillamove -->
-
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
-							<h4><a target="_blank" href="https://www.gorillamove.com/">gorillamove</a></h4>
-							<h5>Mobile & Web Application</h5>
+							<h4><a target="_blank" href="https://www.retailerbook.com/">retailerbook</a></h4>
+							<h5>ERP Web Application</h5>
 							<p><em>Gononet Online Solutions Ltd, Dhaka</em></p>
-							<p class="tag tag-red">ReactNative</p>
-							<p class="tag tag-green">Redux</p>
 							<p class="tag tag-two">React</p>
 							<p class="tag tag-two">NextJs</p>
-							<p class="tag tag-pink">PostgreSQL</p>
+							<p class="tag tag-green">Redux</p>
+							<p class="tag tag-pink">zod schema</p>
 
-							<ul>
-								<li>Gorillamove is an instant grocery delivery service in Bangladesh, committed to effectively serving
-									customers and the planet a little better every day.
+							<ul style="margin: 10px;">
+								<li>Retailerbook gives business owners instant financial clarity.</li>
+								<li>Retailerbook gives you real-time visibility and control across stores, warehouses, consignment, and
+									VMI locations — without delays or blind spots.
 								</li>
-								<li>React-native cross-platform mobile app and React-based web app. Golang is used for the backend.
+								<li> Inventory Value Protection: Slow-moving, damaged, and near-expiry inventory silently eats profit.
+									Retailerbook exposes these risks early, while action is still possible.</li>
+								<li>Retailerbook stratifies pricing rules so every price change stays consistent, controlled, and
+									profitable — even across thousands of items.</li>
+								<li>Retailerbook helps you buy only what sells — at the best price possible — so margin isn't lost
+									before inventory arrives.</li>
+								<li>POS & Sales Orders, Warehouse Operations, Purchase Management & Quotation Comparison.
 								</li>
-								<li> I am a part of the team whose responsibility is to handle all kinds of Mobile app, frontend, and
-									admin
-									operations.</li>
-								<li>Available on the play store, app store, and website.</li>
 							</ul>
 						</div>
-
-						<!-- GSA -->
-
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4>General Systems Alert</h4>
 							<h5>Web & Mobile Application</h5>
@@ -540,7 +1025,7 @@
 							<p class="tag tag-three">ExpressJs</p>
 							<p class="tag tag-red">SCSS</p>
 
-							<ul>
+							<ul style="margin: 10px;">
 								<li>General Systems Alert (GSA) is a system for detecting and alerting police when gunshots occur. Not
 									only
 									gunshots but also Fire, Violations, violent chemical reactions, and child violence also.</li>
@@ -552,13 +1037,8 @@
 									team.</li>
 							</ul>
 						</div>
-
-
-
 					</div>
-					<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-						<!-- gonojobs -->
-
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4>Gonojobs</h4>
 							<h5>Web & Mobile Application</h5>
@@ -570,7 +1050,7 @@
 							<p class="tag tag-two">Swagger</p>
 							<p class="tag tag-three">ExpressJs</p>
 
-							<ul>
+							<ul style="margin: 10px;">
 								<li>Gonojobs is a digital platform that connects job seekers and employers, primarily designed for
 									people
 									living both. We offer an easy solution for job seekers and employers to find the right links, as well
@@ -584,11 +1064,10 @@
 								<li>I am a part of the team whose responsibility is to handle all kinds of NodeJs API and Mobile app
 									frontend operations.</li>
 							</ul>
+
 						</div>
-
-						<!-- sequizatic -->
-
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4><a target="_blank" href="https://app.tekumopro.com/">Sequinzatic</a></h4>
 							<h5>Mobile Application</h5>
@@ -599,7 +1078,7 @@
 							<p class="tag tag-pink">PostgreSQL</p>
 							<p class="tag tag-blue">Angular</p>
 							<p class="tag tag-orange">Material</p>
-							<ul>
+							<ul style="margin: 10px;">
 								<li>Sequinzatic is an intelligent service delivery platform that solves the "last-mile" of installing
 									and
 									maintaining technology systems and smart connected devices.</li>
@@ -608,9 +1087,8 @@
 									operations.</li>
 							</ul>
 						</div>
-
-						<!-- sms -->
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4><a target="_blank" href="https://github.com/abmrifat1/laravelMovieTicket">See My Show</a></h4>
 							<h5>Web Application</h5>
@@ -622,16 +1100,17 @@
 							<p class="tag tag-pink">MuSQL</p>
 							<p class="tag tag-blue">ReactJs</p>
 							<p class="tag tag-orange">CSS</p>
-							<ul>
+							<ul style="margin: 10px;">
 								<li>An online movie Ticket management. </li>
-								<li>It is a web app where user can buy movie, MySql
+								<li>It is a web app where user can buy movie,
 									sport, and concert ticket.</li>
+								<li>Customer can book movie ticket and seat from their favourite hall</li>
+								<li>Customer can see the movie tailer</li>
+								<li>Customer can see movie details and ratings</li>
 							</ul>
 						</div>
-
-						<!-- project mp -->
-
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4>Project Management App</h4>
 							<h5>Web Application</h5>
@@ -639,22 +1118,22 @@
 							<p class="tag tag-red">React</p>
 							<p class="tag tag-green">Node</p>
 							<p class="tag tag-three">FireBase</p>
-							<ul>
+							<ul style="margin: 10px;">
 								<li> There are equipment lists, groups, and projects.
 									The project is transferred and returned by quantity. Project status is updated with a date.</li>
 								<li>I am a part of the team whose responsibility is to handle all kinds of NodeJs API and frontend
 									operations designed with react.</li>
 							</ul>
 						</div>
-						<!-- medical da -->
-
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 mb-4">
 						<div class="resume-item">
 							<h4>Medical College Division App</h4>
 							<h5>Mobile Application</h5>
 							<p><em>React Native & Firebase App</em></p>
 							<p class="tag tag-red">ReactNative</p>
 							<p class="tag tag-green">Firebase</p>
-							<ul>
+							<ul style="margin: 10px;">
 								<li>A requisition workflow is handled by multiple users in the hospital and clinic. </li>
 								<li>React-native android mobile app and database is built by firebase.</li>
 								<li> I was responsible to handle all kinds of Mobile app frontend operations.</li>
@@ -662,25 +1141,22 @@
 						</div>
 					</div>
 				</div>
+		</section>
 
-			</div>
-		</section><!-- End Project Section -->
-
-		<!-- ======= Portfolio Section ======= -->
-		<section id="portfolio" class="portfolio section-bg">
-			<div class="container">
-
+		<!-- Portfolio -->
+		<section id="portfolio" class="portfolio">
+			<div class="full-container">
 				<div class="section-title">
 					<h2>Portfolio</h2>
-					<p>My Works.</p>
+					<p>Visual showcase</p>
 				</div>
-
 				<div class="row" data-aos="fade-up">
 					<div class="col-lg-12 d-flex justify-content-center">
 						<ul id="portfolio-flters">
 							<li data-filter="*" class="filter-active">All</li>
 							<li data-filter=".filter-sequenza">Sequinza</li>
 							<li data-filter=".filter-kaster">Kaster</li>
+							<li data-filter=".filter-retailerbook">RetailerBook</li>
 							<li data-filter=".filter-gym">Gym Heroes</li>
 							<li data-filter=".filter-gorilla">gorillamove</li>
 							<li data-filter=".filter-minesweeper">Minesweeper</li>
@@ -692,26 +1168,7 @@
 						</ul>
 					</div>
 				</div>
-
-				<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-					<!-- <div class="col-lg-2 col-md-3 portfolio-item filter-web">
-							<div class="portfolio-wrap">
-								<center>
-									<p> <strong>Good Deal</strong></p>
-								</center>
-								<img src="assets/img/portfolio/portfolio-11.jpg" class="img-fluid" alt=""
-									style="height: 100px">
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-11.jpg" data-gall="portfolioGallery"
-										class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-									<a target="_blank" href="https://good-deal.com.bd/" title="More Details"><i
-											class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div> -->
-
-
+				<div class="row portfolio-container">
 					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-sequenza">
 						<div class="portfolio-wrap">
 
@@ -1015,6 +1472,218 @@
 						</div>
 					</div>
 
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/1.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/1.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/2.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/2.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/3.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/3.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/4.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/4.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/5.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/5.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/6.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/6.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/7.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/7.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/8.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/8.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/9.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/9.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/10.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/10.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/11.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/11.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/11.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/11.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/12.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/12.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/13.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/13.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/14.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/14.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/15.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/15.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/16.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/16.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/17.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/17.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/18.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/18.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/20.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/20.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-retailerbook">
+						<div class="portfolio-wrap">
+
+							<img src="assets/img/retailer-book/21.png" class="img-fluid" alt="" style="height: 100px">
+							<div class="portfolio-links">
+								<a href="assets/img/retailer-book/21.png" data-gall="portfolioGallery" class="venobox"
+									title="RetailerBook"><i class="bx bx-plus"></i></a>
+							</div>
+						</div>
+					</div>
 
 					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-minesweeper">
 						<div class="portfolio-wrap">
@@ -1911,117 +2580,17 @@
 							</div>
 						</div>
 					</div>
-
-
-
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-16-796_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-16-796_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-20-590_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-20-590_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-20-590_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-20-590_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-24-763_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-24-763_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-31-527_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-31-527_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-35-360_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-35-360_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f37-44-408_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f37-44-408_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-2 col-md-3 col-sm-6 portfolio-item filter-gym">
-						<div class="portfolio-wrap">
-
-							<img src="assets/img/fit/f38-03-014_com.ayubur.fitnessapp.jpg" class="img-fluid" alt=""
-								style="height: 100px">
-							<div class="portfolio-links">
-								<a href="assets/img/fit/f38-03-014_com.ayubur.fitnessapp.jpg" data-gall="portfolioGallery" height="100%"
-									class="venobox" title="Minesweeper"><i class="bx bx-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- end-fitness-heroes -->
 				</div>
-
-			</div>
 		</section>
-		<!-- End Portfolio Section -->
 
-		<!-- Testimonial Section -->
-		<section id="testimonial" class="testimonial">
-			<div class="container">
+		<!-- Testimonials -->
+		<section id="testimonial">
+			<div class="full-container">
 				<div class="section-title">
-					<h2>Testimonial</h2>
+					<h2>Testimonials</h2>
 				</div>
-
-				<div class="row" data-aos="fade-in">
-
-					<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<!-- <img src="assets/img/testimonials/jacob.jpeg" height="200px" width="200px" alt=""
 								class="img-fluid rounded-circle"> -->
@@ -2044,7 +2613,7 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<a style="background-color: #060606;border-radius: 50%;padding: 3px 5px; margin-left: -20px;"
 								target="_blank" href="https://www.linkedin.com/in/mdnazmulhasanandroid/" class="linkedin"><i
@@ -2061,7 +2630,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="col-lg-4">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<a style="background-color: #060606;border-radius: 50%;padding: 3px 5px; margin-left: -20px;"
 								target="_blank" href="https://www.linkedin.com/in/jerin-jahan-6b573a108/" class="linkedin"><i
@@ -2083,7 +2652,7 @@
 				</div>
 				<div class="row" data-aos="fade-in">
 
-					<div class="col-lg-4">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<a style="background-color: #060606;border-radius: 50%;padding: 3px 5px; margin-left: -20px;"
 								target="_blank" href="https://www.linkedin.com/in/josephleivape/" class="linkedin"><i
@@ -2101,7 +2670,7 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<a style="background-color: #060606;border-radius: 50%;padding: 3px 5px; margin-left: -20px;"
 								target="_blank" href="https://www.linkedin.com/in/mzhossain01/" class="linkedin"><i
@@ -2122,7 +2691,7 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4">
+					<div class="col-lg-4" style="margin-bottom: 20px;">
 						<div class="testimonial-info">
 							<a style="background-color: #060606;border-radius: 50%;padding: 3px 5px; margin-left: -20px;"
 								target="_blank" href="https://www.linkedin.com/in/ayubur/" class="linkedin"><i
@@ -2143,125 +2712,125 @@
 						</div>
 					</div>
 				</div>
-			</div>
+		</section>
 
+		<!-- Contact -->
+		<section id="contact" class="contact">
+			<div class="full-container">
+				<div class="section-title">
+					<h2>Contact</h2>
+					<p>Let's connect</p>
+				</div>
+				<div class="info d-flex flex-wrap justify-content-between">
+					<div><i class="icofont-google-map"></i> <strong>Location:</strong> Gulshan 2, Dhaka</div>
+					<div><i class="icofont-envelope"></i> <strong>Email:</strong> rifatabm1@gmail.com</div>
+					<div><i class="icofont-phone"></i> <strong>Call:</strong> +8801772515721</div>
+				</div>
 			</div>
 		</section>
 
-		<!-- Testimonial  Section End-->
+	</main>
 
-
-
-		<!-- ======= Contact Section ======= -->
-		<section id="contact" class="contact">
-			<div class="container">
-
-				<div class="section-title">
-					<h2>Contact</h2>
-					<p>How Can I Help You?</p>
-				</div>
-
-				<div class="row" data-aos="fade-in">
-
-					<div class="col-lg-12 d-flex align-items-stretch">
-						<div class="info">
-							<div class="address">
-								<i class="icofont-google-map"></i>
-								<h4>Location:</h4>
-								<p>Gulshan 2, Dhaka</p>
-							</div>
-
-							<div class="email">
-								<i class="icofont-envelope"></i>
-								<h4>Email:</h4>
-								<p>rifatabm1@gmail.com</p>
-							</div>
-
-							<div class="phone">
-								<i class="icofont-phone"></i>
-								<h4>Call:</h4>
-								<p>+8801772515721</p>
-							</div>
-
-							<div class="phone">
-								<i class="icofont-whatsapp"></i>
-								<h4>Whatsapp:</h4>
-								<p>+8801886407758</p>
-							</div>
-						</div>
-
-					</div>
-
-					<!-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-						<form action="https://formspree.io/f/xnqoywpp" method="post" role="form" class="php-email-form">
-							<div class="form-row">
-								<div class="form-group col-md-6">
-									<label for="name">Your Name</label>
-									<input type="text" name="name" class="form-control" id="name" data-rule="minlen:4"
-										data-msg="Please enter at least 4 chars" />
-									<div class="validate"></div>
-								</div>
-								<div class="form-group col-md-6">
-									<label for="name">Your Email</label>
-									<input type="email" class="form-control" name="email" id="email" data-rule="email"
-										data-msg="Please enter a valid email" />
-									<div class="validate"></div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="name">Subject</label>
-								<input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4"
-									data-msg="Please enter at least 8 chars of subject" />
-								<div class="validate"></div>
-							</div>
-							<div class="form-group">
-								<label for="name">Message</label>
-								<textarea class="form-control" name="message" rows="3" data-rule="required"
-									data-msg="Please write something for us"></textarea>
-								<div class="validate"></div>
-							</div>
-							<div class="mb-3">
-								<div class="loading">Loading</div>
-								<div class="error-message"></div>
-							</div>
-							<div class="text-center"><button disabled type="submit">Send Message</button></div>
-						</form>
-					</div> -->
-
-				</div>
-
-			</div>
-		</section><!-- End Contact Section -->
-
-		<!-- ======= Footer ======= -->
-		<div class="container">
-			<div class="copyright" style="font-size: x-small;">
-				<p>&#169 Khorshed Alam 2026</p>
-			</div>
-			<div class="credits">
-			</div>
+	<footer>
+		<div class="full-container">
+			<p>&#169 Khorshed Alam 2026 | Professional Portfolio</p>
 		</div>
-
-	</main><!-- End #main -->
+	</footer>
 
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-	<!-- Vendor JS Files -->
+	<!-- Vendor JS -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script src="assets/vendor/counterup/counterup.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 	<script src="assets/vendor/venobox/venobox.min.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 	<script src="assets/vendor/typed.js/typed.min.js"></script>
 	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+	<script src="assets/vendor/counterup/counterup.min.js"></script>
+	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
-	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script>
+		(function ($) {
+			"use strict";
+			if ($('.typed').length) {
+				var typed_strings = $(".typed").data('typed-items');
+				typed_strings = typed_strings.split(',');
+				new Typed('.typed', { strings: typed_strings, loop: true, typeSpeed: 90, backSpeed: 45, backDelay: 2000 });
+			}
 
+			// Smooth scroll & mobile nav
+			$(document).on('click', '.nav-menu a, .scrollto', function (e) {
+				if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+					e.preventDefault();
+					var target = $(this.hash);
+					if (target.length) {
+						$('html, body').animate({ scrollTop: target.offset().top }, 1200, 'easeInOutExpo');
+						if ($(this).parents('.nav-menu, .mobile-nav').length) {
+							$('.nav-menu .active, .mobile-nav .active').removeClass('active');
+							$(this).closest('li').addClass('active');
+						}
+						if ($('body').hasClass('mobile-nav-active')) {
+							$('body').removeClass('mobile-nav-active');
+							$('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+						}
+					}
+				}
+			});
+
+			// Mobile nav toggle - icon change fix
+			$('.mobile-nav-toggle').click(function () {
+				$('body').toggleClass('mobile-nav-active');
+				// Toggle the icon class between menu and close
+				$(this).find('i').toggleClass('icofont-navigation-menu icofont-close');
+			});
+
+			// Also ensure when clicking a nav link, the menu closes and icon resets
+			$(document).on('click', '.nav-menu a', function () {
+				if ($('body').hasClass('mobile-nav-active')) {
+					$('body').removeClass('mobile-nav-active');
+					$('.mobile-nav-toggle i').removeClass('icofont-close').addClass('icofont-navigation-menu');
+				}
+			});
+
+			$(window).scroll(function () { if ($(this).scrollTop() > 100) $('.back-to-top').fadeIn('slow'); else $('.back-to-top').fadeOut('slow'); });
+			$('.back-to-top').click(function () { $('html, body').animate({ scrollTop: 0 }, 1200); return false; });
+
+			$(window).on('load', function () {
+				var portfolioIsotope = $('.portfolio-container').isotope({
+					itemSelector: '.portfolio-item',
+					layoutMode: 'fitRows'
+				});
+
+				$('#portfolio-flters li').on('click', function () {
+					$("#portfolio-flters li").removeClass('filter-active');
+					$(this).addClass('filter-active');
+
+					portfolioIsotope.isotope({
+						filter: $(this).data('filter')
+					});
+					aos_init();
+				});
+
+				// Initiate venobox (lightbox feature used in portofilo)
+				$(document).ready(function () {
+					$('.venobox').venobox();
+				});
+			});
+
+			// $(window).on('load', function () {
+			// 	var portfolioIsotope = $('.portfolio-container').isotope({ itemSelector: '.portfolio-item', layoutMode: 'fitRows' });
+			// 	$('#portfolio-flters li').on('click', function () {
+			// 		$("#portfolio-flters li").removeClass('filter-active');
+			// 		$(this).addClass('filter-active');
+			// 		portfolioIsotope.isotope({ filter: $(this).data('filter') });
+			// 	});
+			// 	$('.venobox').venobox();
+			// });
+			AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+		})(jQuery);
+	</script>
 </body>
 
 </html>
